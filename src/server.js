@@ -3,12 +3,14 @@ const app = express()
 
 // Routes
 const routerKoder = require("./routes/koder.route")
+const routerGeneration = require("./routes/generation.route")
 
 // Middleware del json
 app.use(express.json())
 
 // Middlewares de rutas
 app.use("/koders", routerKoder)
+app.use("/generations", routerGeneration)
 
 // Endpoint de Home
 app.get("/", (request, response) => {
