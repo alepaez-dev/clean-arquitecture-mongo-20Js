@@ -1,10 +1,14 @@
 const express = require("express")
-
 const app = express()
 
+// Routes
+const routerKoder = require("./routes/koder.route")
+
 // Middleware del json
-// Middlewares
 app.use(express.json())
+
+// Middlewares de rutas
+app.use("/koders", routerKoder)
 
 // Endpoint de Home
 app.get("/", (request, response) => {
@@ -17,5 +21,12 @@ app.get("/", (request, response) => {
 // objeto -> 1 cosa
 // arreglo -> 1 cosa
 // aplicacion de express
+
+/** Tarea
+ * -> Collecion
+ * - Modelos -> Usecases -> Endpoints -> server.js
+ * -> 1. Crear Mentor
+ * -> 2. Actualizar un mentor
+ */
 //
 module.exports = app

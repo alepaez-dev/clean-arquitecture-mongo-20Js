@@ -6,8 +6,6 @@ require("dotenv").config()
 const mongoose = require("mongoose")
 const app = require("./src/server")
 
-
-console.log("process env", process.env)
 const {
   DB_USERNAME,
   DB_PASSWORD,
@@ -21,7 +19,7 @@ const URL = `mongodb+srv://${DB_USERNAME}:${DB_PASSWORD}@${DB_HOST}${DB_NAME}`
 mongoose.connect(URL)
 .then(() => {
   console.log("Connect to our database...")
-  
+
   // Levantando servidor
   app.listen(8080, () => {
     console.log("Servidor levantado")
