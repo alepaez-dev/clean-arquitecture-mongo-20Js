@@ -1,27 +1,22 @@
-// Endpoints
 const express = require("express")
 const { createGeneration } = require("../usecases/generation.usecase")
-const formatDates = require("../middlewares/formatDates.middleware")
 
-// Haciendo router
 const router = express.Router()
 
-// Endpoint de crear
-// /koders
-router.post("/",  async (request, response) => {
-  // Recibir el request
-  // Response
-  try {
+
+router.post("/", async (request, response) => {
+  try{
     const { body } = request
+
     const generation = await createGeneration(body)
     response.status(201)
     response.json({
       success: true,
-      data: {
+      data : {
         generation
       }
     })
-  } catch(error) {
+  }catch(error) {
     response.status(400)
     response.json({
       success: false,
@@ -30,6 +25,4 @@ router.post("/",  async (request, response) => {
   }
 })
 
-
-// Exportar la ruta -> router
 module.exports = router

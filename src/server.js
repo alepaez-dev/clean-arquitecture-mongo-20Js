@@ -17,7 +17,6 @@ app.get("/", (request, response) => {
   response.json({ message: "Bienvenido a nuestra API de arquitectura limpia" })
 }) 
 
-// Exportar
 
 // solo exporta 1 cosa
 // objeto -> 1 cosa

@@ -19,6 +19,7 @@
    },
    generation: {
     type: String,
+    required: true
    },
    type: {
      type: String,
