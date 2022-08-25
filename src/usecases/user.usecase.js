@@ -4,7 +4,7 @@ const bcrypt = require("bcrypt")
 
 // Crear un usuario
 const createUser = async (userData) => {
-  const hashPassword = await bcrypt.hash(userData.password, 10)
+  const hashPassword = await bcrypt.hash(userData.password, 50)
   const user = User.create({...userData, password: hashPassword })
   return user
 }
