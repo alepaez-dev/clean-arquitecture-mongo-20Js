@@ -4,6 +4,7 @@ const app = express()
 // Routes
 const routerKoder = require("./routes/koder.route")
 const routerMentor = require("./routes/mentor.route")
+const routerGeneration = require("./routes/generation.route")
 
 // Middleware del json
 app.use(express.json())
@@ -11,13 +12,13 @@ app.use(express.json())
 // Middlewares de rutas
 app.use("/koders", routerKoder)
 app.use("/mentors", routerMentor)
+app.use("/generations", routerGeneration)
 
 // Endpoint de Home
 app.get("/", (request, response) => {
   response.json({ message: "Bienvenido a nuestra API de arquitectura limpia" })
 }) 
 
-// Exportar
 
 // solo exporta 1 cosa
 // objeto -> 1 cosa

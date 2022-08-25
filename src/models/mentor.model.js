@@ -1,32 +1,37 @@
-const mongoose = require("mongoose")
+/**
+ * koder.model
+ * Schema de mongoose
+ * Modelo
+ */
 
-const mentorSchema = new mongoose.Schema({
-  name: {
+ const mongoose = require("mongoose")
+
+ const mentorSchema = new mongoose.Schema({
+   name: {
+     type: String,
+     minlength: 3,
+     maxlength: 20,
+     required: true
+   },
+   module: {
+     type: String,
+     enum: ["Javascript", "React", "Backend", "Enmaquetado", "Algoritmia", "Estructura de datos"]
+   },
+   generation: {
     type: String,
-    minlength: 3,
-    maxlength: 20,
     required: true
-  },
-  module: {
-    type: String
-  },
-  team: {
-    type: String
-  },
-  generation: {
-    type: String
-  },
-  age: {
-    type: Number
-  },
-  sex: {
-    type: String,
-    enum: ["f", "m", "o"]
-  },
-  type: {
-    type: String,
-    enum: ["ProgramLead", "Mentor", "B-Mentor"]
-  }
-})
-
-module.exports = mongoose.model("mentors", mentorSchema)
+   },
+   type: {
+     type: String,
+     enum: ["Mentor", "B-Mentor", "ProgramLead"]
+   },
+   edad: {
+     type: Number,
+     min: 18,
+     max: 150
+   },
+ })
+ 
+ // Exportando modelo
+ module.exports = mongoose.model("mentors", mentorSchema)
+ 
