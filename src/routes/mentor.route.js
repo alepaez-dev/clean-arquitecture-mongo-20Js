@@ -11,7 +11,7 @@ const {
 const router = express.Router()
 
 // router
-router.use(auth)
+// router.use(auth)
 // Endpoints
 
 router.post("/", async (request, response) => {
@@ -38,7 +38,7 @@ router.post("/", async (request, response) => {
 // Path param
 // Arquitecture rest -> /recursos/identificador
 // identificador
-router.get("/:id", async (request, response) => {
+router.get("/:id", auth, async (request, response) => {
   try {
     // Path params
     const { params } = request
