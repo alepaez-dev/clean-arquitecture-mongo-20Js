@@ -1,5 +1,5 @@
-const { query } = require("express")
 const express = require("express")
+const auth = require("../middlewares/auth.middleware")
 const { 
   createMentor,
   getMentor,
@@ -10,6 +10,8 @@ const {
 
 const router = express.Router()
 
+// router
+router.use(auth)
 // Endpoints
 
 router.post("/", async (request, response) => {
